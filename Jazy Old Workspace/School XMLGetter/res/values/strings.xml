@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="school_name">G. Holmes Braddock</string>
+    <string name="app_name">Braddock Events</string>
+    <string name="refresh_button">Refresh Button</string>
+    <string name="host_name">jazyserver.myftp.org</string>
+    <string name="host_port">8080</string>
+
+</resources>

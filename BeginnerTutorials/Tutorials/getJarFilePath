@@ -1,0 +1,24 @@
+private String getJarFilePath (){
+		String result="";
+		int from,to;
+		try{
+		result = this.getClass().getProtectionDomain().getCodeSource().getLocation().toURI().toString();
+		}catch(Exception e){System.out.println(e.getMessage());return null;} //ERROR
+		if (result.contains("jar:file:")){
+			from = 9;
+		}else if (result.contains("file:")){
+			from = 5;
+		}else{System.out.println("Invalid Excecution!: "+result);return null;} //ERROR
+		//We got the path
+		//Lets rid the !/
+		if (result.contains("!/")){
+			to = result.indexOf("!/");
+		}else{to=result.length();}
+		//Trim it
+		result = result.substring(from,to);
+		//Lets fix the spaces (%20)
+		result = result.replaceAll("%20", " ");
+		//We done :D
+		System.out.println("result= "+result); //DEBUG TEXT
+		return result;
+    }

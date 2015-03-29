@@ -1,0 +1,8 @@
+private boolean testInt(String x){
+		try{
+			Integer.parseInt(x);
+		} catch(NumberFormatException e) {
+			return false;
+		} 
+		return true;
+	}

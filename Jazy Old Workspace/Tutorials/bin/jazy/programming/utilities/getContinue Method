@@ -1,0 +1,19 @@
+import java.util.Scanner;
+
+	private static void getContinue(){
+		Scanner scan1 = new Scanner(System.in);
+		System.out.printf("%nCountinue? (y/n) ");
+		String in = scan1.next();
+		if ((in.equals("y"))||(in.equals("Y"))) {
+			//Run a method or something...
+		}
+		else if ((in.equals("n"))||(in.equals("N"))) {
+			//Peace!
+			System.exit(0);
+		}
+		else {
+			System.out.printf("%s is not a valid response%nPlease try again...",in);
+			//System.exit(1); //Remove // if you want the app to finish here
+			getContinue();
+		}
+	}

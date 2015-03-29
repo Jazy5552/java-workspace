@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<school>Braddock
+	<event>
+		<category>Sports</category>
+		<name>Soccer Game</name>
+		<time>8:00AM</time>
+		<date>January 10, 2012</date>
+		<price>$10</price>
+		<description>Soccer game, Erian vs The World, at braddock field. \\nWatch Erian get wrecked!</description>
+	</event>
+	<event>
+		<category>Casual</category>
+		<name>Prep Rally</name>
+		<time>10:00AM</time>
+		<date>January 9, 2012</date>
+		<price>Free</price>
+		<description>Prep rally for Erian so his raping is so crumy!</description>
+	</event>
+</school>

@@ -1,0 +1,13 @@
+This program was made by Jazy
+For Educational/School purposes.
+
+This program is meant to be used with Erien's
+iPod add in sending database information
+to the app for student/staff purposes.
+
+This is an open source program in which the
+source code is in the .jar file
+(Credit is always appreciated)
+
+#This is to be used using my txt displayer
+#And this text should not be visible

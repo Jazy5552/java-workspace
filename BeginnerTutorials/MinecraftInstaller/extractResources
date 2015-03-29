@@ -1,0 +1,141 @@
+package jazy.minecraft.installer;
+
+import java.io.File;
+//import java.io.FileInputStream;
+import java.io.FileOutputStream;
+//import java.io.IOException;
+import java.io.InputStream;
+//import java.net.JarURLConnection;
+//import java.net.URISyntaxException;
+import java.net.URL;
+import java.util.Enumeration;
+//import java.util.jar.JarEntry;
+//import java.util.jar.JarFile;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipFile;
+//import java.util.zip.ZipInputStream;
+
+
+
+
+public class extractResources{
+	
+	static String myClassName; //Unused
+    static final String MANIFEST = "META-INF/MANIFEST.MF";
+    String jarName;
+	
+	public static void main(String[] args) { //For debug purposes
+		new extractResources(false);
+	}
+	
+	
+	extractResources(boolean planB){
+		
+		
+		
+	
+		
+	//Slightly Stable (But not desired results...)
+		if (planB){
+			jarName="C:/Users/Jazy/Desktop/Minecraft Update Installer/MinecraftUpdater.jar";
+			start.log("Path internal jar: "+this.getClass().getResource("/versions").getPath(),true);
+		} else {
+			jarName = getJarFileName(); //More like jarLocation
+		}
+	if (jarName==null) return; //Commencing PlanB
+	extract();
+	}
+	
+	public void extract(){ 
+		InputStream in = getClass().getResourceAsStream("files.zip");
+		if (in==null){ //No zip...dumb
+			start.log("files.zip Missing from JAR file!", false);
+			return;
+		}
+		
+		File out = new File(jarName).getParentFile();
+		FileOutputStream to;
+		
+		byte[] buffer = new byte[1024*2];
+		int bytesread;
+		
+		try{
+		to = new FileOutputStream(new File(out.getPath()+"/files.zip"));
+		}catch(Exception e){start.log("ERROR MAKING FILE: "+e.getMessage(), false);
+		try{in.close();}catch(Exception ignore){}
+		return;}
+		
+		try{
+		while ((bytesread = in.read(buffer))!=-1) {
+			//Write
+			to.write(buffer,0,bytesread);
+		}
+		}catch(Exception e){start.log("ERROR WRITING: "+e.getMessage(), false);
+		try{
+			to.close();
+			in.close();
+		}catch(Exception ignore){}
+		return;}
+		
+		//Now we extract the .zip
+		ZipFile zip;
+		Enumeration<? extends ZipEntry> entries;
+		ZipEntry entry;
+		try{
+		zip= new ZipFile(out.getPath()+"/files.zip");
+		}catch(Exception e){start.log("ERROR GETTING FILE: "+e.getMessage(),false);return;}
+		entries = zip.entries();
+		//Extract
+		try{
+			while(entries.hasMoreElements()){
+				entry = entries.nextElement();
+				start.log("ENTRY: "+entry.getName(),true);
+				//TODO Add Checks here
+				
+				//write
+				in = zip.getInputStream(entry);
+				to = new FileOutputStream(new File(out.getPath()+"/"+entry.getName()));
+				while((bytesread = in.read(buffer))!=-1){
+					to.write(buffer,0,bytesread);
+				}
+				if (to!=null) to.close();
+				if (in!=null) in.close();
+			}
+		}catch(Exception e){start.log("UL ERROR: "+e.getMessage(),false);}
+		//Completed!!!
+		try{in.close();to.close();}catch(Exception ignore){} //Safety
+		
+		start.log("Extraction Successful!",false);
+		
+		
+	}
+	
+	//TODO Make a fail method to clean up?
+	
+	
+	//Gets the Jar's File name
+	private String getJarFileName ()
+    {
+		if (start.debug) {start.log("Name: "+this.getClass().getName().substring(this.getClass().getName().lastIndexOf(".")+1),true);}
+      myClassName = this.getClass().getName().substring(this.getClass().getName().lastIndexOf(".")+1) + ".class";
+      URL urlJar = this.getClass().getResource(myClassName);
+      String urlStr = urlJar.toString();
+      	if (start.debug) {start.log("Directory?: "+urlStr, true);}
+      	int from;
+      if (urlStr.contains("jar:file:")){
+    	  from = "jar:file:".length();
+      } else { //PLAN B (Running from workspace)
+    	  new extractResources(true);
+    	  return null;
+      }
+      while (urlStr.contains("%20")){
+    	  int area = urlStr.indexOf("%20");
+    	  urlStr = urlStr.substring(0,area)+" "+urlStr.substring(area+3); //Replaces
+      }
+      int to = urlStr.indexOf("!/");
+      return urlStr.substring(from, to);
+    }
+	
+	
+}
+
