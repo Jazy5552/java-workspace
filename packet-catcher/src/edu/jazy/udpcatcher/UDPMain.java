@@ -1,7 +1,7 @@
 /**
  * Constructor only needs a port integer and the logger object
  * This class will hold and start the UDPServerThread which will listen and print
- * any incoming packets on the specified port
+ * any incoming packets on the specified port using the method in the Logger class
  *
  */
 package edu.jazy.udpcatcher;
