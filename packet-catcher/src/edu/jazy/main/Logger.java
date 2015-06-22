@@ -1,5 +1,7 @@
 package edu.jazy.main;
 
+import edu.jazy.tcpcatcher.TCPClientSocket;
+
 public class Logger {
 
 	public void log(String msg) {
@@ -20,6 +22,13 @@ public class Logger {
 		synchronized (this) {
 		//Console output
 		System.out.print(msg);
+		}
+	}
+	
+	public void tcpclog(String msg, TCPClientSocket soc) {
+		synchronized (this) {
+			//TCP Client message with the soc for more info
+			System.out.println(soc.toString() + ": " + msg);
 		}
 	}
 	

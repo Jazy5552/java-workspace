@@ -11,7 +11,7 @@ import edu.jazy.udpcatcher.UDPMain;
 public class MainClass {
 
 	public static void main(String[] args) {
-		final Logger l = new Logger();
+		final Logger l = new Logger(); //Carry this shit everywhere...
 		Scanner input = new Scanner(System.in);
 		String in;
 		if (args.length == 0) {
