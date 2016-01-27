@@ -60,7 +60,19 @@ public class AlienTranslator {
 		// Store it in a String variable named message
 
 		// ---- > Fill in Student Code Here < ------
-
+		int planet;
+		String message;
+		
+		System.out.println("What planet?");
+		planet = Integer.parseInt(in.nextLine());
+		if (planet != 1 && planet != 2) {
+			System.out.println("Not a valid planet.");
+			return null;
+		}
+		
+		System.out.println("What message?");
+		message = in.nextLine();
+		
 		// ---- > End Student Code < -----
 
 		// Teaching staff code - STUDENTS DO NOT MODIFY - extracts characters
@@ -86,10 +98,47 @@ public class AlienTranslator {
 			// and append the translated character to the result variable
 
 			// ----- > Fill in Student Code Here < -----
-
+			if (planet == 1) {
+				//Two letters ahead so get two characters behind
+				//A=65 Z=90 a=97 z=122
+				if (charToTranslate > 64 && charToTranslate < 91) {
+					//Is upper
+					charToTranslate = (char)((charToTranslate - 65 + 26 - 2) % 26 + 65);
+				} else if (charToTranslate > 96 && charToTranslate < 123) {
+					//Is lower
+					charToTranslate = (char)((charToTranslate - 97 + 26 - 2) % 26 + 97);
+				}
+			} else if (planet == 2) {
+				//Two letters behind so get two characters ahead
+				//A=65 Z=90 a=97 z=122
+				if (charToTranslate > 64 && charToTranslate < 91) {
+					//Is upper
+					charToTranslate = (char)((charToTranslate - 65 + 26 + 2) % 26 + 65);
+				} else if (charToTranslate > 96 && charToTranslate < 123) {
+					//Is lower
+					charToTranslate = (char)((charToTranslate - 97 + 26 + 2) % 26 + 97);
+				}
+			}
+			
+			result += charToTranslate; 
 			// ----- > End Student Code < -----
 
 		} // ends the for loop
+		
+		//TODO: perform the necessary output as specified in the requirements
+
+		// **** This TODO was added to this starter code on Mon 1/25 2:55pm ****
+
+		//------> Fill in Student Code < -------
+		if (planet == 1) {
+			System.out.println("Original message in Beaumondian: " + message);
+		} else if (planet == 2) {
+			System.out.println("Original message in Reginian: " + message);
+		}
+		
+		System.out.println("Translation in Earth English: " + result);
+
+		//------> End Student Code < ------- 
 
 		// Sends back the value of the result variable
 
