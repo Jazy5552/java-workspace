@@ -10,7 +10,7 @@ public class Reverse {
 	}
 	
 	public static void main(String[] args) {
-		System.out.println(reverseNum(1468535));
+		System.out.println(reverseNum(1234567));
 	}
 
 }

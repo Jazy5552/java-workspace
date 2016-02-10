@@ -9,18 +9,20 @@ public class FireflySeasons {
 		Scanner in = new Scanner(System.in);
 		int month, year;
 		int bSeason, rSeason;
-		
+
 		System.out.print("Enter year: ");
 		year = in.nextInt();
 		System.out.print("Enter month: ");
 		month = in.nextInt();
 		
-		bSeason = (((month-1) / 3) + 3) % 4; //Shift the seasons
+//		bSeason = (((month-1) / 3) + 3) % 4; //Shift the seasons
+		bSeason = (((year * 12 + month)-1) % 12)/3;
 		// 0 = spring
 		// 1 = summer
 		// 2 = autumn
 		// 3 = winter
-		rSeason = (bSeason + (5 - (year % 5))) % 5; //Get the rseason in reference to bseason
+//		rSeason = (bSeason + (5 - (year % 5))) % 5; //Get the rseason in reference to bseason
+		rSeason = (((year * 12 + month)-1) % 15)/3;
 		// 0 = spring
 		// 1 = summer
 		// 2 = autumn
