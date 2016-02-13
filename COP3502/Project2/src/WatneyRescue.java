@@ -1,4 +1,10 @@
+/*
+ * Made by Jazy Llerena
+ * Project 2 for COP 3502
+ * Mars Rescue
+ */
 import java.util.Scanner;
+import java.lang.Math;
 
 public class WatneyRescue {
 
@@ -66,14 +72,30 @@ public class WatneyRescue {
 	 */
 	public String generateContingency(double distLewisWatney) {
 		String result = "";
+		int angle, lDistance, wDistance, row;
 		result += "Contingencies given distance " + distLewisWatney + " from Lewis to Watney:\n";
 
 		//TODO: Compute the table values for Lewis angle from north ranging every five degrees 
 		//from 15 to 75 inclusive, and for her distance to the hab for every three meters from 15
 		//to 30 inclusive. Solve each row for Watney's distance to the hab. Round everything
 		//to the nearest meter. 
-		
-		
+		row = 1;
+		for (angle = 15; angle <= 75; angle += 5) {
+			for (lDistance = 15; lDistance <= 30; lDistance += 3) {
+				//Calculate wDistance
+				double rAngle = ((90 - angle)*Math.PI)/180; //Turn into radians
+				//Using law of cosines
+				wDistance = (int)Math.round(Math.sqrt(
+						Math.pow(distLewisWatney, 2) + 
+						Math.pow(lDistance, 2) - 
+						(2*distLewisWatney*lDistance*Math.cos(rAngle))));
+				//Add row
+				result += row + ") " + angle + " | " + lDistance + " | " + wDistance + "\n";
+				//End row
+				row++;
+			}
+		}
+
 		return result;
 	}
 
@@ -87,18 +109,29 @@ public class WatneyRescue {
 	 * @return
 	 */
 	public String computeWalkingTime (double distLewisWatney, String table, int row) {
-
+		String result = "";
 		//TODO: Traverse the table to get the correct row's string. (Hint: look at the 
 		//starter code for the interpretHexadecimal method to see a cool trick for stepping
 		//through a String and breaking it apart using a certain character.) 
+		String line;
+		String[] rows = table.split("\n");
+		line = rows[row]; // +1 to account for the table header
 		
 		//TODO: Extract from that row the needed distance. 
+		int wDistance, lDistance;
+		lDistance = Integer.parseInt(line.split("\\|")[1].trim());
+		wDistance = Integer.parseInt(line.split("\\|")[2].trim());
 		
 		//TODO: Compute the walking time for Watney and Lewis to the ship. 
 		//Watney is injured so his walking pace is 0.9 meters per second. 
 		//Lewis' walking pace is 1.7 meters per second.
-
-
+		int wTime, lTime;
+		lTime = (int)Math.round(lDistance / 1.7);
+		wTime = (int)Math.round(wDistance / 0.9);
+		
+		result += "Watney walking time to ship: " + wTime + " seconds\n";
+		result += "Lewis walking time to ship: " + lTime + " seconds\n";
+		return result;
 	}
 
 	/**
@@ -109,6 +142,7 @@ public class WatneyRescue {
 	 * @return a String with the message in English
 	 */
 	public String interpretHexadecimal(String angles) {
+		String result = "";
 		//An easy way to break apart a list of things is to make a Scanner on it
 		//This Scanner is unrelated to any other variables with the same name because this
 		//one is only meaningful inside this method. Also, this scanner does not read from the
@@ -120,7 +154,21 @@ public class WatneyRescue {
 		s.useDelimiter(",");
 
 		//TODO: Complete this method :) 
+		double angle;
+		int val1, val2;
+		char letter;
+		while (s.hasNext()) {
+			angle = Double.parseDouble(s.next());
+			val1 = (int)(angle / (360/16.0)); //Get the 0-15 "hex" value
+			angle = Double.parseDouble(s.next()); //Assume there is ALWAYS a pair
+			val2 = (int)(angle / (360/16.0)); //Get the 0-15 "hex" value
+			letter = (char)((val1*16) + val2); //Turn the val1/2 into the appropriate combined value
+			result += letter;
+		}
 		
+		s.close();
+		//Shhh don't worry, its over
+		return result;
 	}
 }
 
