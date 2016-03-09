@@ -1,3 +1,6 @@
+//Lyle Buchanan
+//Kyle Hamlin
+//Jassiel Llerena
 import java.util.Scanner;
 
 public class OldPhoneText {
