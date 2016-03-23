@@ -11,7 +11,7 @@ public class SongWriter {
 		Guitar g = new Guitar(strings, chords);
 		
 		//Play some chords magic guitar
-		//g.simulateSong();
+		g.simulateSong();
 		
 		//And a vocalist was born!
 		Vocalist v = new Vocalist(g, centerFreq);

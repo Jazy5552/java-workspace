@@ -12,7 +12,7 @@ public class Vocalist {
 	}
 	
 	void generateMelody() {
-		//TODO Go through the guitar chords and find one that best matches this
+		//Go through the guitar chords and find one that best matches this
 		//vocalist's center frequency and make that into the melody
 		System.out.printf("Vocalist(): midRangeFreq: %.2f\n", center);
 		int songLength = guitar.getSongLength();
@@ -40,15 +40,11 @@ public class Vocalist {
 	}
 	
 	public void sing() {
-		//TODO Singggg my pretty little vocalist!
-		int duration;
+		//Singggg my pretty little vocalist!
 		for (int j=0; j<melody[0].length; j++) {
-			duration = (int)(Math.round(melody[1][j]));
+			//Divide the duration by 4 and loop this whole thing a couple
+			//times and this thing starts to get trippy
 			StdAudio.playTone(melody[0][j], melody[1][j]);
-			/*try {
-				Thread.sleep(duration * 1000);
-			} catch (Exception e) {} //Safety first (Said no one ever)
-			*/
 		}
 	}
 	
