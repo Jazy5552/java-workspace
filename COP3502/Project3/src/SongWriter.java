@@ -2,12 +2,13 @@
 public class SongWriter {
 
 	public static void main(String[] args) {
-		// Create wonderful music!
-		//Extract the 3 numbers (They better be in args or java will have a fit!)
+		/* Create wonderful music! */
+		//Extract the 3 numbers (They better be in args or java will have a hissy fit!)
 		int strings = Integer.parseInt(args[0]), 
 				chords = Integer.parseInt(args[1]);
 		double centerFreq = Double.parseDouble(args[2]);
 		
+		//Make La Guitara
 		Guitar g = new Guitar(strings, chords);
 		
 		//Play some chords magic guitar

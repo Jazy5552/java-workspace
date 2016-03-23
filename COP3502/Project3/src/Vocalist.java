@@ -6,9 +6,9 @@ public class Vocalist {
 	
 	
 	Vocalist(Guitar guitar, double center) {
-		this.guitar = guitar;
-		this.center = center;
-		generateMelody();
+		this.guitar = guitar; //I got that devilish flow
+		this.center = center; //Rock and roll
+		generateMelody(); //No halo!
 	}
 	
 	void generateMelody() {
@@ -27,8 +27,8 @@ public class Vocalist {
 			for (int j=0; j<chord.length-1; j++) {
 				//Look for the most compatible string to vocalize
 				if (j == 0) melody[0][i] = chord[j]; //Store the very first one
-				magnitude = Math.abs((melody[0][i] / center) - 1);
-				contender = Math.abs((chord[j] / center) - 1);
+				magnitude = Math.abs((melody[0][i] / center) - 1); //Every day
+				contender = Math.abs((chord[j] / center) - 1); //I'm shuffling
 				if (contender < magnitude) {
 					//Contender is closer to the center freq
 					melody[0][i] = chord[j];

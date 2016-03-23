@@ -6,8 +6,8 @@ public class Guitar {
 	double[][] song;
 	
 	Guitar(int strings, int chords) {
-		this.strings = strings;
-		this.chords = chords;
+		this.strings = strings; //Yo!
+		this.chords = chords; //I'm running through these
 		generateSong();
 	}
 	
@@ -57,11 +57,7 @@ public class Guitar {
 			System.out.print(currentChord);
 			for (int w=0; w<Math.round(song[strings][j]); w++) {
 				//Wait for however many seconds the beats value says on that last row of song
-				try { //I hope try/catch is allowed D:
-					Thread.sleep(1000);
-				} catch (Exception e) {
-					//Meh who cares, toss the e
-				}
+				nowStop(1000);
 				System.out.print("."); //Print the lil'dot
 			}
 			System.out.println(); //Just a new line
@@ -83,6 +79,15 @@ public class Guitar {
 		//Invalid chord
 		return null;
 	}
+	
+	private void nowStop(int dur) {
+		//Hating's bad!
+		try { //One more shot for us!
+			Thread.sleep(1000); //Another round!
+		} catch (Exception e) { //Please fill up my cup!
+			//Don't mess around!
+		} //We just wana see ya
+	} //SHAKE DAT!
 	
 	//Just a getter
 	public int getSongLength() {
