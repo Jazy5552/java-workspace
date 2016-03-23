@@ -84,7 +84,7 @@ public class Guitar {
 		//Hating's bad!
 		try { //One more shot for us!
 			Thread.sleep(1000); //Another round!
-		} catch (Exception e) { //Please fill up my cup!
+		} catch (Exception LMFAO) { //Please fill up my cup!
 			//Don't mess around!
 		} //We just wana see ya
 	} //SHAKE DAT!
