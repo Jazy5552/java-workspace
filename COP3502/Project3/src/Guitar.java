@@ -6,8 +6,8 @@ public class Guitar {
 	double[][] song;
 	
 	Guitar(int strings, int chords) {
-		this.strings = strings; //Yo!
-		this.chords = chords; //I'm running through these
+		this.strings = strings;
+		this.chords = chords; 
 		generateSong();
 	}
 	
@@ -18,8 +18,8 @@ public class Guitar {
 		System.out.printf("Guitar(): Generated new guitar with %d strings. Song length is %d chords.\n", strings, chords);
 		
 		Random r = new Random();
-		double min = 27.5,
-				max = 4186,
+		double min = 27.5, //Ew a magic number, make a constant you savage
+				max = 4186, //Ew a magic number, make a constant you savage
 				range = max - min;
 		
 		song = new double[strings+1][chords]; //+1 for beats row
@@ -48,7 +48,7 @@ public class Guitar {
 		String currentChord;
 		for (int j=0; j<chords; j++) {
 			currentChord = "";
-			for (int i=0; i<strings; i++) {
+			for (int i=strings-1; i>=0; i--) { //Play strings backwards
 				currentChord += String.format("%7.2f\t",song[i][j]);
 			}
 			//Remove that last space
