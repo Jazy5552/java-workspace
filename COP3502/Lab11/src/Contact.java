@@ -1,4 +1,6 @@
-
+//Jassiel Llerena
+//Tony Parra
+//David Stellear
 public class Contact {
 	String name;
 	String nick;
