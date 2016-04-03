@@ -125,9 +125,9 @@ public class WatneyRescue {
 		//TODO: Compute the walking time for Watney and Lewis to the ship. 
 		//Watney is injured so his walking pace is 0.9 meters per second. 
 		//Lewis' walking pace is 1.7 meters per second.
-		int wTime, lTime;
-		lTime = (int)Math.round(lDistance / 1.7);
-		wTime = (int)Math.round(wDistance / 0.9);
+		long wTime, lTime;
+		lTime = Math.round(lDistance / 1.7);
+		wTime = Math.round(wDistance / 0.9);
 		
 		result += "Watney walking time to ship: " + wTime + " seconds\n";
 		result += "Lewis walking time to ship: " + lTime + " seconds\n";
@@ -159,9 +159,9 @@ public class WatneyRescue {
 		char letter;
 		while (s.hasNext()) {
 			angle = Double.parseDouble(s.next());
-			val1 = (int)(angle / (360/16.0)); //Get the 0-15 "hex" value
+			val1 = (int)((angle%360) / (360/16.0)); //Get the 0-15 "hex" value
 			angle = Double.parseDouble(s.next()); //Assume there is ALWAYS a pair
-			val2 = (int)(angle / (360/16.0)); //Get the 0-15 "hex" value
+			val2 = (int)((angle%360) / (360/16.0)); //Get the 0-15 "hex" value
 			letter = (char)((val1*16) + val2); //Turn the val1/2 into the appropriate combined value
 			result += letter;
 		}
