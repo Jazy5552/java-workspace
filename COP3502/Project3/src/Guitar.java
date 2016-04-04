@@ -55,7 +55,7 @@ public class Guitar {
 			currentChord = currentChord.substring(0, currentChord.length()-1);
 			//Print the chord and wait
 			System.out.print(currentChord);
-			for (int w=0; w<Math.round(song[strings][j]); w++) {
+			for (int w=0; w<Math.ceil(song[strings][j]); w++) {
 				//Wait for however many seconds the beats value says on that last row of song
 				nowStop(1000);
 				System.out.print("."); //Print the lil'dot

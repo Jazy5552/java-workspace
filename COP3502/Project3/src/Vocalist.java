@@ -44,7 +44,7 @@ public class Vocalist {
 		for (int j=0; j<melody[0].length; j++) {
 			//Divide the duration by 4 and loop this whole thing a couple
 			//times and this thing starts to get trippy
-			StdAudio.playTone(melody[0][j], melody[1][j]);
+			StdAudio.playTone(melody[0][j], Math.ceil(melody[1][j]));
 		}
 	}
 	
