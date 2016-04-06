@@ -1,5 +1,5 @@
 
-public class Circle extends Shape{
+public class Circle extends Shape {
 	double radius;
 	
 	Circle(String color, double radius) {
@@ -20,7 +20,6 @@ public class Circle extends Shape{
 		sb.append(radius);
 		sb.append("\nArea: ");
 		sb.append(calculateArea());
-		sb.append("\n");
 		return sb.toString();
 	}
 	
