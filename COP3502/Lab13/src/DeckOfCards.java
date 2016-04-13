@@ -13,12 +13,13 @@ public class DeckOfCards {
 			in = new Scanner(new File("Cards.txt"));
 		
 			for (int i=0; i<deck.length; i++) {
-				tmp = in.nextLine().split(",");
-				deck[i] = new Card(Integer.parseInt(tmp[0]), tmp[1].trim());
+				tmp = in.nextLine().split(","); //Split rank and suit
+				deck[i] = new Card(Integer.parseInt(tmp[0]), tmp[1].trim()); //Convert rank to int and construct
 			}
 			in.close();
 		} catch (FileNotFoundException e) {
-			e.printStackTrace();
+			System.out.println("File 'Cards.txt' not found!");
+			//e.printStackTrace();
 			return;
 		}
 		
@@ -54,29 +55,32 @@ public class DeckOfCards {
 }
 
 class Card {
-	private String rank, suit;
+	private int rank;
+	private String suit;
 	
 	Card(int rank, String suit) {
 		this.suit = suit;
-		switch (rank) {
-		case 1:
-			this.rank = "Ace";
-			break;
-		case 11:
-			this.rank = "Jack";
-			break;
-		case 12:
-			this.rank = "Queen";
-			break;
-		case 13:
-			this.rank = "King";
-			break;
-		default:
-			this.rank = Integer.toString(rank);
-		}
+		this.rank = rank;
 	}
 	
 	public String toString() {
-		return (rank + " of " + suit);
+		String sRank;
+		switch (rank) {
+		case 1:
+			sRank = "Ace";
+			break;
+		case 11:
+			sRank = "Jack";
+			break;
+		case 12:
+			sRank = "Queen";
+			break;
+		case 13:
+			sRank = "King";
+			break;
+		default:
+			sRank = Integer.toString(rank);
+		}
+		return (sRank + " of " + suit);
 	}
 }
