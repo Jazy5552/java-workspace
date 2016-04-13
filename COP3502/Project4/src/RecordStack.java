@@ -52,14 +52,18 @@ public class RecordStack {
 	}
 	
 	public int size() {
-		//TODO Is size the capacity of the stack or the number of elements in the stack
+		//Is size the capacity of the stack or the number of elements in the stack
 		//Return the size of the stack
 		return (top + 1);
 	}
 	
 	public String toString() {
-		//TODO Return the string representation of the stack
-		return null;
+		//Return the string representation of the stack
+		String re = "";
+		for (int i=0; i<top+1; i++) {
+			re += data[i] + "\n";
+		}
+		return re;
 	}
 	
 }
