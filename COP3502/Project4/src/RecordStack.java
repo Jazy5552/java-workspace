@@ -4,13 +4,13 @@ public class RecordStack {
 	private int top; // -1 == Empty
 	
 	public RecordStack() {
-		//TODO Create an empty stack
+		//Create an empty stack
 		data = new Record[5]; //Initial size of 5 seems good
 		top = -1; //Currently empty
 	}
 	
 	public void push(Record r) {
-		//TODO Add Record r to the data array. The data array must be appropriately sized or resized
+		//Add Record r to the data array. The data array must be appropriately sized or resized
 		//to incorporate the new Record.
 		//top must be readjusted to point the new top of the stack
 		if ((top + 1) >= data.length) {
