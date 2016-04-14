@@ -12,10 +12,12 @@ public class StoreFront {
 		//Initialize variables
 		inventory45s = new RecordStack();
 		inventoryLPs = new RecordStack();
-		repairQueue = new LinkedList<Record>();
 		
-		//Initialize inventory
+		//Initialize inventories
 		InitialInventoryPopulator.getInitialInventory("Lucy_Initial_Inventory.csv", inventory45s, inventoryLPs);
+		
+		//Initialize repair queue
+		repairQueue = InventoryPopulator.getInitialRepairQueue("Lucy_Initial_Inventory.csv");
 		
 		//Main Loop
 		System.out.println("Welcome Lucy Starnight!\n");
@@ -111,12 +113,12 @@ public class StoreFront {
 		System.out.print("Enter the album Year > ");
 		year = in.nextLine();
 		
-		if (type.toLowerCase().equals("lp")) {
-			//Make an LP record
-			return (new LP(artist, title, Integer.parseInt(year)));
-		} else { //Everything else goes??? savage
+		if (type.equals("45")) {
 			//Make a 45 record
 			return (new FortyFive(artist, title, Integer.parseInt(year)));
+		} else { //Everything else goes??? savage
+			//Make an LP record
+			return (new LP(artist, title, Integer.parseInt(year)));
 		}
 	}
 
