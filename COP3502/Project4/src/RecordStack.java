@@ -58,12 +58,16 @@ public class RecordStack {
 	}
 	
 	public String toString() {
+		//Not sure what this funtion is supposed to do since the stack should not be printed...
+		/*
 		//Return the string representation of the stack
 		String re = "";
 		for (int i=0; i<top+1; i++) {
 			re += data[i] + "\n";
 		}
 		return re;
+		*/
+		return null;
 	}
 	
 }
