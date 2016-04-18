@@ -36,7 +36,7 @@ public class StoreFront {
 		//whether you call it lucysStore or something else is up to you. 
 		lucysStore.repairQueue = InventoryPopulator.getInitialRepairQueue(args[0]);
 		//Split the main inventory
-		RecordStack wholeInventory = InventoryPopulator.getInitialInventory(args[0]);
+		RecordStack wholeInventory = InventoryPopulator.getInitialInventory(args[1]);
 		lucysStore.splitInventories(wholeInventory);
 		
 		//Code that displays the menu and gets Lucy's response until she wants to quit
@@ -217,8 +217,12 @@ public class StoreFront {
 		"8. Abandon All Hope\n" +
 		"-----------------------------------------------------\n\n"
 		+ "Select an Option > ");
-	
-		return Integer.parseInt(in.nextLine()); //Savage
+		
+		try {
+			return Integer.parseInt(in.nextLine()); //Savage
+		} catch (Exception e) {
+			return -1;
+		}
 	}
 
 	/*
