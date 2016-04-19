@@ -1,3 +1,4 @@
+import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
 
@@ -12,7 +13,7 @@ import java.util.Scanner;
  *
  */
 public class StoreFront {
-	private Queue<Record> repairQueue;
+	private Queue<Record> repairQueue = new LinkedList<Record>();
 	private RecordStack inventory45s = new RecordStack();
 	private RecordStack inventoryLPs = new RecordStack();
 
@@ -136,7 +137,7 @@ public class StoreFront {
 		for (Record r : repairQueue) { //?
 			ret += r + "\n";
 		}
-		return ret.trim();
+		return ret;
 	}
 
 	/**
@@ -245,8 +246,8 @@ public class StoreFront {
 		int year = Integer.parseInt(s.nextLine().trim());
 		System.out.println("Is it an LP or a 45? Type 'LP' or '45'.");
 		String type = s.nextLine();
-		if (type.equals("45")) return new FortyFive(title,artist,year);
-		else return new LP(title, artist,year); //Yolo
+		if (type.equals("45")) return new FortyFive(artist, title, year);
+		else return new LP(artist, title, year); //Yolo
 		//TODO Add input checks you animal!
 		//Na don't wana deal with nulls
 	}
