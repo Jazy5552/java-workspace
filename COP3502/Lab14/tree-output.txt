@@ -1,0 +1,7 @@
+Samantha, 36, 3.4
+Victor, 720, 129.3
+Gloria, 0, 0.0
+Tree1, 0, 0.0
+Tree2, 0, 0.0
+Tree3, 0, 0.0
+Tree21, 0, 0.0

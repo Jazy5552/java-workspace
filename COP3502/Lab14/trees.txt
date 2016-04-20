@@ -1,0 +1,3 @@
+Samantha, 3.4, 36
+Victor, 129.3, 720
+Gloria, 0, 0
