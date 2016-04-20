@@ -1,5 +1,5 @@
 
-public class SongWriter {
+public class Songwriter {
 
 	public static void main(String[] args) {
 		/* Create wonderful music! */
