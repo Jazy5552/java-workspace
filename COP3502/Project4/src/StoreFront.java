@@ -173,7 +173,7 @@ public class StoreFront {
 	 */
 	public void sell45() {
 		if (inventory45s.isEmpty()) {
-			//TODO Look into whether program should exit
+			//Look into whether program should exit: No just print error
 			System.out.println("Error! No 45 albums available in inventory!");
 		} else {
 			Record r = inventory45s.pop();
