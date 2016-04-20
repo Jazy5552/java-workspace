@@ -58,7 +58,7 @@ public class RecordStack {
 	}
 	
 	public String toString() {
-		//Not sure what this funtion is supposed to do since the stack should not be printed...
+		//Not sure what this function is supposed to do since the stack should not be printed...
 		/*
 		//Return the string representation of the stack
 		String re = "";
@@ -67,7 +67,7 @@ public class RecordStack {
 		}
 		return re;
 		*/
-		return null;
+		return ("This stack has " + size() + (size() == 1 ? " record" : " records"));
 	}
 	
 }
